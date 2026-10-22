@@ -1,4 +1,13 @@
-# React + TypeScript + Vite
+# DoIt website
+
+Static site for the DoIt mobile app, deployed to GitHub Pages on every push to `main`.
+
+- Support: https://artemboua.github.io/doit/support/
+- Privacy Policy: https://artemboua.github.io/doit/privacy/
+
+The pages live in `public/support/` and `public/privacy/`.
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
