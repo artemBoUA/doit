@@ -24,7 +24,7 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <main>
 <nav><a href="#en">English</a> · <a href="#uk">Українська</a> · <a href="../support/">Support</a></nav>
 <h1 id="en">Privacy Policy — DoIt</h1>
-<p><strong>Effective date:</strong> 22 October 2026<br><strong>Contact:</strong> <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a></p>
+<p><strong>Effective date:</strong> 17 November 2026<br><strong>Contact:</strong> <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a></p>
 <p>DoIt ("the app") is a workout and nutrition tracking app. This policy explains what data the app processes, why, and what choices you have. Українська версія — нижче.</p>
 <h2>1. Two ways to use the app</h2>
 <ul>
@@ -37,6 +37,8 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <li>Account data (online account only): name and email from Google or Apple sign-in, a unique account ID, your nickname, user type (athlete or trainer), avatar or profile photo link, profile description.</li>
 <li>Fitness data: exercises, workouts, sets, repetitions, weights, notes, workout history, statistics, achievements.</li>
 <li>Nutrition data: meal plans, dishes, ingredients, check-ins (eaten percentage, satiety, comments).</li>
+<li>"About me" details (optional): age, height, weight, allergies and food intolerances, food preferences, health limitations (for example an injury) and training wishes. They are stored only on your device: they are not part of your public profile, are not backed up to the cloud and are not shared with your trainer. They are sent to the AI assistant when you use it (see section 3).</li>
+<li>Running data: the route (GPS points), distance, pace, elevation, splits and, if you allow it, heart rate and distance from Health Connect (Android) or Apple Health (iOS). Run data is kept only on your device and is not uploaded to our servers. Location is used only to record a run that you start, including when the screen is off. Health data is used only to show it for your runs and workouts; it is not shared with third parties and is not used for advertising.</li>
 <li>Trainer data: client list with names, goals, contacts, notes and training or meal plans that a trainer enters about clients. Trainers are responsible for having their clients' permission to enter this data.</li>
 </ul>
 <p><strong>Data collected automatically</strong></p>
@@ -45,44 +47,60 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <li>Advertising (Google AdMob): the app shows ads. AdMob may process device information such as IP address and device or advertising identifiers to deliver, personalise and measure ads. Where required by law (for example in the EEA and UK), we ask for your consent through Google's consent form before ads are requested, and you can change your choice at any time. On iOS we also ask for your permission through Apple's App Tracking Transparency prompt before ads may use your advertising identifier for tracking; if you decline, you will still see ads, but they will not be personalised using that identifier.</li>
 <li>Crash reports (Firebase Crashlytics): if the app crashes or hits an unexpected error, we receive a technical report with the device model, operating system version, app version, the state of the app at the time of the error, and a random installation identifier. We do not add names, nicknames, emails or notes to these reports.</li>
 <li>Update delivery (Expo Updates): the app contacts Expo servers to check for updates and receives technical data such as app version and platform.</li>
+<li>AI assistant usage: a counter per account (credits and tokens used today and bonus credits earned by watching rewarded ads), used to apply the daily limits.</li>
 </ul>
-<p>We do not collect precise location, contacts, microphone or camera data.</p>
-<h2>3. Why we use data</h2>
+<p>We do not collect contacts, microphone or camera data. Precise location is used only to record a run that you start (see above) and is not sent to our servers.</p>
+<h2>3. AI assistant</h2>
+<p>The AI assistant is available with an online account to users aged 18 and over. It can suggest exercises, trainings, nutrition advice and meal plans. It is powered by Google's Gemini models: the app sends your request to our server (Firebase Cloud Functions, Europe region) and the server calls Gemini; the app does not contact Gemini directly. Before you first open the assistant, the app shows a notice that explains this and asks you to confirm that you are 18 or older; the assistant opens only after you confirm. If you answer "No", the assistant stays closed.</p>
+<p><strong>Google's free tier.</strong> We use the free tier of the Gemini API. Under Google's terms for that tier, Google may use the content of the requests and answers to provide and improve its products and machine-learning technologies, and people at Google may read and review it. For this reason, do not write anything in the chat that you do not want Google to see, and do not enter details about other people. Google's terms are at <a href="https://ai.google.dev/gemini-api/terms">https://ai.google.dev/gemini-api/terms</a>.</p>
+<p><strong>What is sent when you use it</strong></p>
+<ul>
+<li>The messages of the current chat (the latest ones), the app language and your weight unit.</li>
+<li>Your "About me" details, if you have saved any (age, height, weight, allergies, food preferences, health limitations, training wishes). They are sent with every request so that the answers are safe and personal. Leave them empty if you do not want to share them. When you tell the assistant such details in the chat, the app does not save them by itself: it shows a window that lists exactly what it would save and asks you to confirm. Only if you tap "Save" are they stored in your profile on your device and sent with the next requests; if you tap "Not now", nothing is saved. Details you wrote in the chat are still part of that chat's messages, which are sent to the assistant while the chat is open. Health-related details (such as allergies or an injury) are sent only if you wrote or saved them.</li>
+<li>Your training data, only if you allow it in the chat ("Share my data"): the names of your exercises, the trainings you created and your latest finished trainings (names and dates). It is sent only with the requests of that chat. Weights, repetitions, notes, nutrition check-ins and running data are not sent.</li>
+<li>To make a meal plan the server also adds the app's own food catalog to the request.</li>
+</ul>
+<p><strong>What we keep.</strong> Our server does not store your messages or the assistant's answers. The chat stays only in the memory of the app and is not saved. We keep only the usage counter described above. Google processes the requests under its Gemini API terms (see "Google's free tier" above); we do not control how long Google keeps them.</p>
+<p><strong>Please note.</strong> The assistant is not a doctor or a licensed dietitian, its answers can be inaccurate and they are not medical advice. For an injury or any health problem, see a doctor. Do not enter data that you do not want to share.</p>
+<h2>4. Why we use data</h2>
 <ul>
 <li>To provide the app: store and sync your workouts and nutrition plans, and connect trainers with clients.</li>
+<li>To answer your requests in the AI assistant and to apply its daily limits.</li>
 <li>To understand which features are used and improve the app (analytics).</li>
 <li>To show ads that support the app (AdMob).</li>
 <li>To find and fix crashes and errors and keep the app stable (crash reports).</li>
 <li>To keep the service secure and prevent abuse.</li>
 </ul>
-<h2>4. Sharing</h2>
+<h2>5. Sharing</h2>
 <p>We do not sell personal data. Data is shared only:</p>
 <ul>
 <li><strong>With your trainer or client</strong> when you link accounts: a trainer sees the client's training and nutrition data that you agree to share, and a client sees the plans and notes the trainer creates.</li>
-<li><strong>With service providers</strong> acting on our behalf: Google (Firebase Authentication, Realtime Database, Analytics, Crashlytics, AdMob, Google Sign-In), Apple (Sign in with Apple) and Expo (updates).</li>
+<li><strong>With service providers</strong> acting on our behalf: Google (Firebase Authentication, Realtime Database, Cloud Functions, Analytics, Crashlytics, AdMob, Google Sign-In, Gemini API for the AI assistant), Apple (Sign in with Apple) and Expo (updates).</li>
 <li><strong>When required by law</strong> or to protect rights and safety.</li>
 </ul>
-<h2>5. Storage and retention</h2>
-<p>Local-profile data stays on your device until you delete it or uninstall the app. Online account data is kept while the account exists. Analytics data is retained by Google Analytics according to the retention period configured for our property. You can ask us to delete your account and cloud data at any time (see section 7).</p>
-<h2>6. Security</h2>
+<h2>6. Storage and retention</h2>
+<p>Local-profile data, "About me" details and run data stay on your device until you delete them or uninstall the app. Online account data is kept while the account exists. AI chats are not stored by us. Analytics data is retained by Google Analytics according to the retention period configured for our property. You can delete your account and cloud data at any time in the app (see section 8). The AI usage counter (a number of credits tied to your account ID, no message content) is removed on request by email, as it is not deleted automatically with the account.</p>
+<h2>7. Security</h2>
 <p>Data is transferred over encrypted connections and cloud access is protected by Firebase security rules and authentication. No method of transmission or storage is completely secure.</p>
-<h2>7. Your choices and rights</h2>
+<h2>8. Your choices and rights</h2>
 <ul>
 <li>Use a <strong>local profile</strong> to keep all data on your device.</li>
 <li><strong>Opt out of analytics:</strong> in Settings, turn off usage analytics (if this option is not yet available in your app version, contact us and we will handle your request).</li>
-<li><strong>Access, correct, export or delete your data:</strong> use the in-app export, edit and delete functions, or email <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a> to request deletion of your account and cloud data.</li>
+<li><strong>AI assistant:</strong> you do not have to use it. Leave the "About me" fields empty or clear them in Edit profile if you do not want them sent, decline the offer to save details from the chat, and allow or refuse sharing of your training data in each chat. By accepting the AI notice and writing to the assistant you agree that what you write is sent to Google as described in section 3; you can stop at any time by not using the assistant.</li>
+<li><strong>Access, correct, export or delete your data:</strong> use the in-app export, edit and delete functions. To delete your account and all cloud data, open Profile and choose "Delete account"; your profile, backup, trainer links and sign-in are removed immediately. You can also email <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a> to request deletion, including of the AI usage counter.</li>
 <li>Depending on where you live (for example the EEA, UK or California) you may have additional rights such as objection and complaint to a data-protection authority.</li>
 <li>Limit ad personalisation or reset your advertising ID in your device settings.</li>
+<li>Withdraw the location or health-data permission in your device settings at any time; recording a run then stops working.</li>
 </ul>
-<h2>8. Children</h2>
+<h2>9. Children</h2>
 <p>The app is intended for users aged 13 and over (or the higher age required in your country) and is not directed at younger children, and we do not knowingly collect their personal data. If you believe a child has provided data, contact us and we will delete it.</p>
-<h2>9. International transfers</h2>
+<h2>10. International transfers</h2>
 <p>Our providers may process data in countries other than yours, including the United States, under appropriate safeguards.</p>
-<h2>10. Changes</h2>
+<h2>11. Changes</h2>
 <p>We may update this policy. The effective date above will change and significant changes will be announced in the app or on this page.</p>
 <hr>
 <h1 id="uk">Політика конфіденційності — DoIt</h1>
-<p><strong>Дата набрання чинності:</strong> 22 жовтня 2026<br><strong>Контакт:</strong> <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a></p>
+<p><strong>Дата набрання чинності:</strong> 17 листопада 2026<br><strong>Контакт:</strong> <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a></p>
 <p>DoIt («застосунок») — застосунок для обліку тренувань і харчування. Ця політика пояснює, які дані обробляє застосунок, навіщо та які у вас є варіанти вибору.</p>
 <h2>1. Два способи використання</h2>
 <ul>
@@ -95,6 +113,8 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <li>Дані акаунта (лише онлайн-акаунт): ім'я та email із входу через Google або Apple, унікальний ідентифікатор акаунта, нікнейм, тип користувача (спортсмен або тренер), посилання на аватар чи фото профілю, опис профілю.</li>
 <li>Фітнес-дані: вправи, тренування, підходи, повторення, ваги, нотатки, історія тренувань, статистика, досягнення.</li>
 <li>Дані про харчування: раціони, страви, інгредієнти, відмітки виконання (відсоток з'їденого, ситість, коментарі).</li>
+<li>Дані «Про мене» (необов'язково): вік, зріст, вага, алергії та харчова непереносимість, харчові вподобання, обмеження по здоров'ю (наприклад, травма) та побажання до тренувань. Вони зберігаються лише на вашому пристрої: не входять до публічного профілю, не копіюються в хмару й не передаються вашому тренеру. Вони надсилаються ШІ-асистенту, коли ви ним користуєтеся (див. розділ 3).</li>
+<li>Дані бігу: маршрут (GPS-точки), дистанція, темп, набір висоти, відрізки та, якщо ви дозволите, пульс і дистанція з Health Connect (Android) або Apple Health (iOS). Дані бігу зберігаються лише на вашому пристрої й не завантажуються на наші сервери. Геолокація використовується лише для запису пробіжки, яку ви починаєте, зокрема й коли екран вимкнено. Дані про здоров'я використовуються лише для показу в ваших пробіжках і тренуваннях; вони не передаються третім особам і не використовуються для реклами.</li>
 <li>Дані тренера: список клієнтів з іменами, цілями, контактами, нотатками та планами тренувань і харчування, які тренер вносить про клієнтів. Тренер відповідає за те, щоб мати згоду клієнтів на внесення цих даних.</li>
 </ul>
 <p><strong>Дані, що збираються автоматично</strong></p>
@@ -103,42 +123,57 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <li>Реклама (Google AdMob): у застосунку показується реклама. AdMob може обробляти дані пристрою, зокрема IP-адресу та ідентифікатори пристрою чи рекламний ідентифікатор, для показу, персоналізації та вимірювання реклами. Там, де цього вимагає закон (наприклад, у ЄЕЗ і Великій Британії), ми запитуємо вашу згоду через форму Google до того, як запитується реклама, і ви можете змінити свій вибір у будь-який момент. На iOS ми також запитуємо ваш дозвіл через системне вікно Apple App Tracking Transparency, перш ніж реклама зможе використовувати ваш рекламний ідентифікатор для відстеження; якщо ви відмовитеся, реклама все одно показуватиметься, але без персоналізації за цим ідентифікатором.</li>
 <li>Звіти про збої (Firebase Crashlytics): якщо застосунок аварійно завершується або стається неочікувана помилка, ми отримуємо технічний звіт із моделлю пристрою, версією операційної системи та застосунку, станом застосунку на момент помилки та випадковим ідентифікатором встановлення. Імена, нікнейми, email і нотатки до цих звітів ми не додаємо.</li>
 <li>Доставка оновлень (Expo Updates): застосунок звертається до серверів Expo для перевірки оновлень і передає технічні дані, як-от версію застосунку та платформу.</li>
+<li>Використання ШІ-асистента: лічильник для акаунта (використані сьогодні кредити й токени та бонусні кредити за перегляд винагородної реклами), потрібний для застосування денних лімітів.</li>
 </ul>
-<p>Ми не збираємо точну геолокацію, контакти, дані мікрофона чи камери.</p>
-<h2>3. Навіщо ми використовуємо дані</h2>
+<p>Ми не збираємо контакти, дані мікрофона чи камери. Точна геолокація використовується лише для запису пробіжки, яку ви починаєте (див. вище), і не надсилається на наші сервери.</p>
+<h2>3. ШІ-асистент</h2>
+<p>ШІ-асистент доступний з онлайн-акаунтом користувачам від 18 років. Він може підказати вправу, тренування, поради щодо харчування та раціон. Він працює на моделях Google Gemini: застосунок надсилає ваш запит на наш сервер (Firebase Cloud Functions, регіон Європа), а сервер звертається до Gemini; застосунок не звертається до Gemini напряму. Перед першим відкриттям асистента застосунок показує повідомлення, яке це пояснює, і просить підтвердити, що вам є 18 років; асистент відкривається лише після підтвердження. Якщо ви відповідаєте «Ні», асистент лишається закритим.</p>
+<p><strong>Безкоштовний рівень Google.</strong> Ми користуємося безкоштовним рівнем Gemini API. За умовами Google для цього рівня Google може використовувати вміст запитів і відповідей для надання й покращення своїх продуктів і технологій машинного навчання, а співробітники Google можуть його читати та переглядати. Тому не пишіть у чаті того, що не хочете показувати Google, і не вказуйте дані інших людей. Умови Google: <a href="https://ai.google.dev/gemini-api/terms">https://ai.google.dev/gemini-api/terms</a>.</p>
+<p><strong>Що надсилається, коли ви ним користуєтеся</strong></p>
+<ul>
+<li>Повідомлення поточного чату (останні), мова застосунку та ваша одиниця ваги.</li>
+<li>Ваші дані «Про мене», якщо ви їх зберегли (вік, зріст, вага, алергії, харчові вподобання, обмеження по здоров'ю, побажання до тренувань). Вони надсилаються з кожним запитом, щоб відповіді були безпечними й персональними. Залиште їх порожніми, якщо не хочете ними ділитися. Коли ви розповідаєте асистенту такі дані в чаті, застосунок не зберігає їх сам: він показує вікно, де перелічено, що саме буде збережено, і просить підтвердити. Лише якщо ви натиснете «Зберегти», дані потраплять у ваш профіль на пристрої й надсилатимуться з наступними запитами; якщо натиснете «Не зараз», нічого не збережеться. Дані, які ви написали в чаті, усе одно входять до повідомлень цього чату, що надсилаються асистенту, поки чат відкритий. Дані про здоров'я (наприклад, алергії чи травма) надсилаються лише якщо ви їх написали або зберегли.</li>
+<li>Ваші дані про тренування, лише якщо ви дозволите це в чаті («Надати мої дані»): назви ваших вправ, створені вами тренування та останні завершені тренування (назви й дати). Вони надсилаються лише із запитами цього чату. Ваги, повторення, нотатки, відмітки харчування та дані бігу не надсилаються.</li>
+<li>Щоб скласти раціон, сервер також додає до запиту власний каталог продуктів застосунку.</li>
+</ul>
+<p><strong>Що ми зберігаємо.</strong> Наш сервер не зберігає ваші повідомлення та відповіді асистента. Чат лишається лише в пам'яті застосунку й не зберігається. Ми зберігаємо лише описаний вище лічильник використання. Google обробляє запити за умовами Gemini API (див. «Безкоштовний рівень Google» вище); ми не контролюємо, як довго Google їх зберігає.</p>
+<p><strong>Зверніть увагу.</strong> Асистент не є лікарем чи ліцензованим дієтологом, його відповіді можуть бути неточними й не є медичною порадою. У разі травми чи будь-якої проблеми зі здоров'ям зверніться до лікаря. Не вводьте дані, якими не хочете ділитися.</p>
+<h2>4. Навіщо ми використовуємо дані</h2>
 <ul>
 <li>Щоб працював застосунок: зберігати й синхронізувати тренування та раціони, з'єднувати тренерів із клієнтами.</li>
+<li>Щоб відповідати на ваші запити в ШІ-асистенті та застосовувати його денні ліміти.</li>
 <li>Щоб розуміти, якими функціями користуються, і покращувати застосунок (аналітика).</li>
 <li>Щоб показувати рекламу, яка підтримує застосунок (AdMob).</li>
 <li>Щоб знаходити й виправляти збої та помилки та підтримувати стабільну роботу застосунку (звіти про збої).</li>
 <li>Щоб забезпечувати безпеку сервісу та запобігати зловживанням.</li>
 </ul>
-<h2>4. Передача даних</h2>
+<h2>5. Передача даних</h2>
 <p>Ми не продаємо персональні дані. Дані передаються лише:</p>
 <ul>
 <li><strong>Вашому тренеру або клієнту</strong>, коли ви зв'язуєте акаунти: тренер бачить дані тренувань і харчування клієнта, якими ви погодилися поділитися, а клієнт бачить плани й нотатки, створені тренером.</li>
-<li><strong>Постачальникам послуг</strong>, що діють від нашого імені: Google (Firebase Authentication, Realtime Database, Analytics, Crashlytics, AdMob, Google Sign-In), Apple (Sign in with Apple) та Expo (оновлення).</li>
+<li><strong>Постачальникам послуг</strong>, що діють від нашого імені: Google (Firebase Authentication, Realtime Database, Cloud Functions, Analytics, Crashlytics, AdMob, Google Sign-In, Gemini API для ШІ-асистента), Apple (Sign in with Apple) та Expo (оновлення).</li>
 <li><strong>За вимогою закону</strong> або для захисту прав і безпеки.</li>
 </ul>
-<h2>5. Зберігання та строки</h2>
-<p>Дані локального профілю залишаються на пристрої, доки ви їх не видалите або не видалите застосунок. Дані онлайн-акаунта зберігаються, поки існує акаунт. Дані аналітики зберігаються в Google Analytics протягом строку, налаштованого для нашої властивості. Ви можете будь-коли попросити видалити акаунт і хмарні дані (див. розділ 7).</p>
-<h2>6. Безпека</h2>
+<h2>6. Зберігання та строки</h2>
+<p>Дані локального профілю, дані «Про мене» та дані бігу залишаються на пристрої, доки ви їх не видалите або не видалите застосунок. Дані онлайн-акаунта зберігаються, поки існує акаунт. Чати з ШІ ми не зберігаємо. Дані аналітики зберігаються в Google Analytics протягом строку, налаштованого для нашої властивості. Ви можете будь-коли видалити акаунт і хмарні дані в застосунку (див. розділ 8). Лічильник використання ШІ (кількість кредитів, прив'язана до ідентифікатора акаунта, без змісту повідомлень) видаляється на запит електронною поштою, оскільки автоматично разом з акаунтом не видаляється.</p>
+<h2>7. Безпека</h2>
 <p>Дані передаються зашифрованими з'єднаннями, а доступ до хмари захищений автентифікацією та правилами безпеки Firebase. Жоден спосіб передачі чи зберігання не є абсолютно безпечним.</p>
-<h2>7. Ваш вибір і права</h2>
+<h2>8. Ваш вибір і права</h2>
 <ul>
 <li>Користуйтеся <strong>локальним профілем</strong>, щоб усі дані залишалися на пристрої.</li>
 <li><strong>Вимкнення аналітики:</strong> у Налаштуваннях вимкніть аналітику використання (якщо цієї опції ще немає у вашій версії застосунку, напишіть нам, і ми обробимо ваш запит).</li>
-<li><strong>Доступ, виправлення, експорт і видалення даних:</strong> скористайтеся функціями експорту, редагування й видалення в застосунку або напишіть на <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a> із запитом на видалення акаунта та хмарних даних.</li>
+<li><strong>ШІ-асистент:</strong> користуватися ним не обов'язково. Залиште поля «Про мене» порожніми або очистьте їх у редагуванні профілю, якщо не хочете їх надсилати, відмовтеся від пропозиції зберегти дані з чату, а в кожному чаті дозвольте чи відмовтеся ділитися даними про тренування. Приймаючи повідомлення про ШІ та пишучи асистенту, ви погоджуєтеся, що написане надсилається до Google, як описано в розділі 3; ви можете в будь-який момент припинити, не користуючись асистентом.</li>
+<li><strong>Доступ, виправлення, експорт і видалення даних:</strong> скористайтеся функціями експорту, редагування й видалення в застосунку. Щоб видалити акаунт і всі хмарні дані, відкрийте Профіль і оберіть «Видалити акаунт»: профіль, резервна копія, зв'язки з тренером і вхід видаляються одразу. Також можна написати на <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a> із запитом на видалення, зокрема й лічильника використання ШІ.</li>
 <li>Залежно від місця проживання (наприклад, ЄЕЗ, Велика Британія, Каліфорнія) ви можете мати додаткові права, зокрема на заперечення та скаргу до органу із захисту даних.</li>
 <li>Обмежити персоналізацію реклами або скинути рекламний ідентифікатор можна в налаштуваннях пристрою.</li>
+<li>Відкликати дозвіл на геолокацію чи дані про здоров'я можна в налаштуваннях пристрою в будь-який момент; запис бігу тоді перестане працювати.</li>
 </ul>
-<h2>8. Діти</h2>
+<h2>9. Діти</h2>
 <p>Застосунок призначений для користувачів віком від 13 років (або старших, якщо цього вимагає законодавство вашої країни) і не орієнтований на молодших дітей; ми свідомо не збираємо їхні персональні дані. Якщо ви вважаєте, що дитина надала дані, зв'яжіться з нами, і ми їх видалимо.</p>
-<h2>9. Міжнародна передача</h2>
+<h2>10. Міжнародна передача</h2>
 <p>Наші постачальники можуть обробляти дані в інших країнах, зокрема в США, із застосуванням відповідних гарантій.</p>
-<h2>10. Зміни</h2>
+<h2>11. Зміни</h2>
 <p>Ми можемо оновлювати цю політику. Дата набрання чинності вище зміниться, а про суттєві зміни буде повідомлено в застосунку або на цій сторінці.</p>
-
 </main>
 </body>
 </html>
