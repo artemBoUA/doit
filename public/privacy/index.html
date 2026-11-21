@@ -24,7 +24,7 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <main>
 <nav><a href="#en">English</a> · <a href="#uk">Українська</a> · <a href="../support/">Support</a></nav>
 <h1 id="en">Privacy Policy — DoIt</h1>
-<p><strong>Effective date:</strong> 17 November 2026<br><strong>Contact:</strong> <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a></p>
+<p><strong>Effective date:</strong> 21 November 2026<br><strong>Contact:</strong> <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a></p>
 <p>DoIt ("the app") is a workout and nutrition tracking app. This policy explains what data the app processes, why, and what choices you have. Українська версія — нижче.</p>
 <h2>1. Two ways to use the app</h2>
 <ul>
@@ -38,7 +38,8 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <li>Fitness data: exercises, workouts, sets, repetitions, weights, notes, workout history, statistics, achievements.</li>
 <li>Nutrition data: meal plans, dishes, ingredients, check-ins (eaten percentage, satiety, comments).</li>
 <li>"About me" details (optional): age, height, weight, allergies and food intolerances, food preferences, health limitations (for example an injury) and training wishes. They are stored only on your device: they are not part of your public profile and are not backed up to the cloud. They are shown to your trainer only if you turn on "Show my details to the trainer" (see section 5), and are sent to the AI assistant when you use it (see section 3).</li>
-<li>Running data: the route (GPS points), distance, pace, elevation, splits and, if you allow it, heart rate and distance from Health Connect (Android) or Apple Health (iOS). Run data is kept only on your device and is not uploaded to our servers. Location is used only to record a run that you start, including when the screen is off. Health data is used only to show it for your runs and workouts; it is not shared with third parties and is not used for advertising.</li>
+<li>Running data: the route (GPS points), distance, pace, elevation, splits and, if you allow it, heart rate and distance from Health Connect (Android) or Apple Health (iOS). Run data is kept only on your device and is not uploaded to our servers. Location is used only to record a run that you start, including when the screen is off. Health data is used only to show it for your runs and workouts and, if you turn on the weight import, to fill in your weight log; it is not shared with third parties and is not used for advertising.</li>
+<li>Weight log (optional): your weight measurements by date, entered by hand or, if you turn on the import in the app, read from Health Connect (Android) or Apple Health (iOS); only days without an entry are filled in, and you can delete any entry. The latest measurement fills in the weight in "About me". Without an account the log stays on your device. With an online account it is also backed up to the cloud in a place that only you can read; it is not part of the backup that a linked trainer can read. Your trainer sees it, read-only, only if you turn on "Show my details to the trainer" (see section 5).</li>
 <li>Trainer data: client list with names, goals (target weight and date), contacts, notes and training or meal plans that a trainer enters about clients, and, for a client, details such as sex, age, height, weight, allergies, food preferences, health limitations and training wishes. Trainers are responsible for having their clients' permission to enter this data. A client's health details (the ones a trainer enters and the ones a linked client shares) stay on the trainer's device and are not included in the cloud backup; for a client without an account, the target weight and date also stay on the device.</li>
 </ul>
 <p><strong>Data collected automatically</strong></p>
@@ -75,12 +76,12 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <h2>5. Sharing</h2>
 <p>We do not sell personal data. Data is shared only:</p>
 <ul>
-<li><strong>With your trainer or client</strong> when you link accounts: a trainer sees the client's training and nutrition data that you agree to share, and a client sees the plans and notes the trainer creates. A client's personal details (sex, age, height, weight, allergies, food preferences, health limitations, training wishes) are shown to the trainer only if the client turns on "Show my details to the trainer"; the client can turn it off at any time in their profile, and the trainer's copy is removed at the next update. The trainer sees them read-only and keeps them only on their own device.</li>
+<li><strong>With your trainer or client</strong> when you link accounts: a trainer sees the client's training and nutrition data that you agree to share, and a client sees the plans and notes the trainer creates. A client's personal details (sex, age, height, weight, allergies, food preferences, health limitations, training wishes) are shown to the trainer only if the client turns on "Show my details to the trainer"; the client can turn it off at any time in their profile, and the trainer's copy is removed at the next update. The trainer sees them read-only and keeps them only on their own device. The same switch controls whether the trainer sees your weight log.</li>
 <li><strong>With service providers</strong> acting on our behalf: Google (Firebase Authentication, Realtime Database, Cloud Functions, Analytics, Crashlytics, AdMob, Google Sign-In, Gemini API for the AI assistant), Apple (Sign in with Apple) and Expo (updates).</li>
 <li><strong>When required by law</strong> or to protect rights and safety.</li>
 </ul>
 <h2>6. Storage and retention</h2>
-<p>Local-profile data, "About me" details and run data stay on your device until you delete them or uninstall the app. Online account data is kept while the account exists. AI chats are not stored by us. Analytics data is retained by Google Analytics according to the retention period configured for our property. You can delete your account and cloud data at any time in the app (see section 8).</p>
+<p>Local-profile data, "About me" details and run data stay on your device until you delete them or uninstall the app. Online account data, including the backup of your weight log, is kept while the account exists. AI chats are not stored by us. Analytics data is retained by Google Analytics according to the retention period configured for our property. You can delete your account and cloud data at any time in the app (see section 8).</p>
 <h2>7. Security</h2>
 <p>Data is transferred over encrypted connections and cloud access is protected by Firebase security rules and authentication. No method of transmission or storage is completely secure.</p>
 <h2>8. Your choices and rights</h2>
@@ -92,7 +93,7 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <li><strong>Access, correct, export or delete your data:</strong> use the in-app export, edit and delete functions. To delete your account and all cloud data, open Profile and choose "Delete account"; your profile, backup, trainer links and sign-in are removed immediately. The AI usage counter is deleted together with your sign-in. You can also email <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a> to request deletion.</li>
 <li>Depending on where you live (for example the EEA, UK or California) you may have additional rights such as objection and complaint to a data-protection authority.</li>
 <li>Limit ad personalisation or reset your advertising ID in your device settings.</li>
-<li>Withdraw the location or health-data permission in your device settings at any time; recording a run then stops working.</li>
+<li>Withdraw the location or health-data permission in your device settings at any time; recording a run (or importing your weight) then stops working. The weight import can also be turned off in the app.</li>
 </ul>
 <h2>9. Children</h2>
 <p>The app is intended for users aged 13 and over (or the higher age required in your country) and is not directed at younger children, and we do not knowingly collect their personal data. The AI assistant is for users aged 18 and over only, and a trainer cannot use it for a client who is under 18 or whose age is unknown. If you believe a child has provided data, contact us and we will delete it.</p>
@@ -102,7 +103,7 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <p>We may update this policy. The effective date above will change and significant changes will be announced in the app or on this page.</p>
 <hr>
 <h1 id="uk">Політика конфіденційності — DoIt</h1>
-<p><strong>Дата набрання чинності:</strong> 17 листопада 2026<br><strong>Контакт:</strong> <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a></p>
+<p><strong>Дата набрання чинності:</strong> 21 листопада 2026<br><strong>Контакт:</strong> <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a></p>
 <p>DoIt («застосунок») — застосунок для обліку тренувань і харчування. Ця політика пояснює, які дані обробляє застосунок, навіщо та які у вас є варіанти вибору.</p>
 <h2>1. Два способи використання</h2>
 <ul>
@@ -116,7 +117,8 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <li>Фітнес-дані: вправи, тренування, підходи, повторення, ваги, нотатки, історія тренувань, статистика, досягнення.</li>
 <li>Дані про харчування: раціони, страви, інгредієнти, відмітки виконання (відсоток з'їденого, ситість, коментарі).</li>
 <li>Дані «Про мене» (необов'язково): вік, зріст, вага, алергії та харчова непереносимість, харчові вподобання, обмеження по здоров'ю (наприклад, травма) та побажання до тренувань. Вони зберігаються лише на вашому пристрої: не входять до публічного профілю й не копіюються в хмару. Вашому тренеру вони показуються лише якщо ви ввімкнете «Показувати мої дані тренеру» (див. розділ 5), а ШІ-асистенту надсилаються, коли ви ним користуєтеся (див. розділ 3).</li>
-<li>Дані бігу: маршрут (GPS-точки), дистанція, темп, набір висоти, відрізки та, якщо ви дозволите, пульс і дистанція з Health Connect (Android) або Apple Health (iOS). Дані бігу зберігаються лише на вашому пристрої й не завантажуються на наші сервери. Геолокація використовується лише для запису пробіжки, яку ви починаєте, зокрема й коли екран вимкнено. Дані про здоров'я використовуються лише для показу в ваших пробіжках і тренуваннях; вони не передаються третім особам і не використовуються для реклами.</li>
+<li>Дані бігу: маршрут (GPS-точки), дистанція, темп, набір висоти, відрізки та, якщо ви дозволите, пульс і дистанція з Health Connect (Android) або Apple Health (iOS). Дані бігу зберігаються лише на вашому пристрої й не завантажуються на наші сервери. Геолокація використовується лише для запису пробіжки, яку ви починаєте, зокрема й коли екран вимкнено. Дані про здоров'я використовуються лише для показу в ваших пробіжках і тренуваннях та, якщо ви ввімкнете імпорт ваги, для заповнення журналу ваги; вони не передаються третім особам і не використовуються для реклами.</li>
+<li>Журнал ваги (необов'язково): ваші виміри ваги за датами, внесені вручну або, якщо ви ввімкнете імпорт у застосунку, прочитані з Health Connect (Android) чи Apple Health (iOS); заповнюються лише дні без запису, а будь-який запис можна видалити. Останній вимір заповнює вагу в «Про мене». Без акаунта журнал залишається на пристрої. З онлайн-акаунтом він також копіюється в хмару в місце, яке бачите лише ви; він не входить до резервної копії, яку може читати прив'язаний тренер. Тренер бачить його лише для читання й лише якщо ви ввімкнете «Показувати мої дані тренеру» (див. розділ 5).</li>
 <li>Дані тренера: список клієнтів з іменами, цілями (цільова вага й термін), контактами, нотатками та планами тренувань і харчування, які тренер вносить про клієнтів, а також про клієнта такі дані, як стать, вік, зріст, вага, алергії, харчові вподобання, обмеження по здоров'ю та побажання до тренувань. Тренер відповідає за те, щоб мати згоду клієнтів на внесення цих даних. Дані клієнта про здоров'я (ті, що вносить тренер, і ті, якими ділиться клієнт із акаунтом) залишаються на пристрої тренера й не входять до хмарної резервної копії; для клієнта без акаунта цільова вага й термін теж залишаються на пристрої.</li>
 </ul>
 <p><strong>Дані, що збираються автоматично</strong></p>
@@ -153,12 +155,12 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <h2>5. Передача даних</h2>
 <p>Ми не продаємо персональні дані. Дані передаються лише:</p>
 <ul>
-<li><strong>Вашому тренеру або клієнту</strong>, коли ви зв'язуєте акаунти: тренер бачить дані тренувань і харчування клієнта, якими ви погодилися поділитися, а клієнт бачить плани й нотатки, створені тренером. Особисті дані клієнта (стать, вік, зріст, вага, алергії, харчові вподобання, обмеження по здоров'ю, побажання до тренувань) показуються тренеру лише якщо клієнт увімкне «Показувати мої дані тренеру»; клієнт може вимкнути це в будь-який момент у профілі, а копія в тренера видаляється після наступного оновлення. Тренер бачить їх лише для читання й зберігає лише на власному пристрої.</li>
+<li><strong>Вашому тренеру або клієнту</strong>, коли ви зв'язуєте акаунти: тренер бачить дані тренувань і харчування клієнта, якими ви погодилися поділитися, а клієнт бачить плани й нотатки, створені тренером. Особисті дані клієнта (стать, вік, зріст, вага, алергії, харчові вподобання, обмеження по здоров'ю, побажання до тренувань) показуються тренеру лише якщо клієнт увімкне «Показувати мої дані тренеру»; клієнт може вимкнути це в будь-який момент у профілі, а копія в тренера видаляється після наступного оновлення. Тренер бачить їх лише для читання й зберігає лише на власному пристрої. Цей самий перемикач визначає, чи бачить тренер ваш журнал ваги.</li>
 <li><strong>Постачальникам послуг</strong>, що діють від нашого імені: Google (Firebase Authentication, Realtime Database, Cloud Functions, Analytics, Crashlytics, AdMob, Google Sign-In, Gemini API для ШІ-асистента), Apple (Sign in with Apple) та Expo (оновлення).</li>
 <li><strong>За вимогою закону</strong> або для захисту прав і безпеки.</li>
 </ul>
 <h2>6. Зберігання та строки</h2>
-<p>Дані локального профілю, дані «Про мене» та дані бігу залишаються на пристрої, доки ви їх не видалите або не видалите застосунок. Дані онлайн-акаунта зберігаються, поки існує акаунт. Чати з ШІ ми не зберігаємо. Дані аналітики зберігаються в Google Analytics протягом строку, налаштованого для нашої властивості. Ви можете будь-коли видалити акаунт і хмарні дані в застосунку (див. розділ 8).</p>
+<p>Дані локального профілю, дані «Про мене» та дані бігу залишаються на пристрої, доки ви їх не видалите або не видалите застосунок. Дані онлайн-акаунта, зокрема копія журналу ваги, зберігаються, поки існує акаунт. Чати з ШІ ми не зберігаємо. Дані аналітики зберігаються в Google Analytics протягом строку, налаштованого для нашої властивості. Ви можете будь-коли видалити акаунт і хмарні дані в застосунку (див. розділ 8).</p>
 <h2>7. Безпека</h2>
 <p>Дані передаються зашифрованими з'єднаннями, а доступ до хмари захищений автентифікацією та правилами безпеки Firebase. Жоден спосіб передачі чи зберігання не є абсолютно безпечним.</p>
 <h2>8. Ваш вибір і права</h2>
@@ -170,7 +172,7 @@ nav { color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--l
 <li><strong>Доступ, виправлення, експорт і видалення даних:</strong> скористайтеся функціями експорту, редагування й видалення в застосунку. Щоб видалити акаунт і всі хмарні дані, відкрийте Профіль і оберіть «Видалити акаунт»: профіль, резервна копія, зв'язки з тренером і вхід видаляються одразу. Лічильник використання ШІ видаляється разом із входом. Також можна написати на <a href="mailto:artembo.service@gmail.com">artembo.service@gmail.com</a> із запитом на видалення.</li>
 <li>Залежно від місця проживання (наприклад, ЄЕЗ, Велика Британія, Каліфорнія) ви можете мати додаткові права, зокрема на заперечення та скаргу до органу із захисту даних.</li>
 <li>Обмежити персоналізацію реклами або скинути рекламний ідентифікатор можна в налаштуваннях пристрою.</li>
-<li>Відкликати дозвіл на геолокацію чи дані про здоров'я можна в налаштуваннях пристрою в будь-який момент; запис бігу тоді перестане працювати.</li>
+<li>Відкликати дозвіл на геолокацію чи дані про здоров'я можна в налаштуваннях пристрою в будь-який момент; запис бігу (або імпорт ваги) тоді перестане працювати. Імпорт ваги також можна вимкнути в застосунку.</li>
 </ul>
 <h2>9. Діти</h2>
 <p>Застосунок призначений для користувачів віком від 13 років (або старших, якщо цього вимагає законодавство вашої країни) і не орієнтований на молодших дітей; ми свідомо не збираємо їхні персональні дані. ШІ-асистент призначений лише для користувачів від 18 років, а тренер не може користуватися ним для клієнта, якому немає 18 років або вік якого невідомий. Якщо ви вважаєте, що дитина надала дані, зв'яжіться з нами, і ми їх видалимо.</p>
