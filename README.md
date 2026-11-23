@@ -4,8 +4,9 @@ Static site for the DoIt mobile app, deployed to GitHub Pages on every push to `
 
 - Support: https://artemboua.github.io/doit/support/
 - Privacy Policy: https://artemboua.github.io/doit/privacy/
+- Smart link (opens the app or leads to the store): https://artemboua.github.io/doit/open/?to=invite&token=...
 
-The pages live in `public/support/` and `public/privacy/`.
+The pages live in `public/support/`, `public/privacy/` and `public/open/`. The smart link page only passes the routes listed in `ROUTES` to the app (`acme://<route>?<params>`): add a route there and handle it in the app (`helpers/openLink.ts`) to support a new kind of link.
 
 ## React + TypeScript + Vite
 
