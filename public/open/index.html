@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" type="image/png" href="../logo.png">
+<title>DoIt</title>
+<style>
+:root { --bg: #ffffff; --fg: #1c1c1e; --muted: #6b6b70; --line: #e2e2e6; --link: #0a66c2; --btn: #1c1c1e; --btn-fg: #ffffff; }
+@media (prefers-color-scheme: dark) { :root { --bg: #111113; --fg: #f2f2f4; --muted: #a0a0a8; --line: #2c2c30; --link: #6cb2ff; --btn: #f2f2f4; --btn-fg: #111113; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 Roboto, -apple-system, 'Segoe UI', sans-serif; }
+main { max-width: 420px; margin: 0 auto; padding: 56px 20px 48px; text-align: center; }
+.logo { width: 88px; height: 88px; border-radius: 20px; }
+h1 { font-size: 26px; line-height: 1.25; margin: 24px 0 8px; }
+p { margin: 8px 0; }
+.muted { color: var(--muted); font-size: 14px; }
+a { color: var(--link); }
+.btn { display: block; box-sizing: border-box; width: 100%; margin: 12px 0 0; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); color: var(--fg); background: transparent; font-size: 16px; font-weight: 500; text-decoration: none; }
+.btn.primary { background: var(--btn); border-color: var(--btn); color: var(--btn-fg); }
+.btn.highlight { background: var(--btn); border-color: var(--btn); color: var(--btn-fg); }
+.stores { margin-top: 28px; }
+footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+<img class="logo" src="../logo.png" alt="DoIt">
+<h1 id="title"></h1>
+<p id="text"></p>
+<a id="open" class="btn primary" href="#" hidden></a>
+<p id="hint" class="muted"></p>
+<div class="stores">
+<a id="ios" class="btn" href="#" hidden></a>
+<a id="android" class="btn" href="#" hidden></a>
+</div>
+<footer class="muted"><a href="../privacy/">Privacy Policy</a> · <a href="../support/">Support</a></footer>
+</main>
+<script>
+/*
+ * Smart link of the DoIt app: https://artemboua.github.io/doit/open/?to=<route>&<params>
+ *
+ * Opens the app on the right screen when it is installed (the custom scheme on iOS, an Android intent on Android) and
+ * leads to the store when it is not. The page never builds an arbitrary address: only the routes and the params listed in
+ * ROUTES are passed to the app, anything else is dropped. To support a new kind of link, add a route here and handle the
+ * same route in the app (hooks/useInviteLink.ts is the example for `invite`).
+ */
+(function () {
+  var SCHEME = 'acme'
+  var ANDROID_PACKAGE = 'com.ua.doit'
+  var APP_STORE_URL = 'https://apps.apple.com/app/id6825663423'
+  var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=' + ANDROID_PACKAGE
+  // How long the page waits for the app to take over before it points to the store.
+  var OPEN_TIMEOUT_MS = 2500
+
+  var ROUTES = {
+    // A trainer invites a client: the client gets the trainings and the link with the trainer.
+    invite: { required: ['token'], params: { token: /^[A-Za-z0-9-]{8,64}$/ } },
+  }
+
+  var TEXT = {
+    en: {
+      open: 'Open DoIt',
+      ios: 'Download on the App Store',
+      android: 'Get it on Google Play',
+      desktop: 'Open this link on your phone to continue in the app.',
+      notOpened: 'Nothing happened? Install DoIt, then open this link again.',
+      installHint: 'Do not have the app yet? Install it, then open this link again.',
+      generic: { title: 'DoIt', text: 'Workouts and nutrition for athletes and trainers.' },
+      invite: { title: 'You have been invited to DoIt', text: 'Open the app to get your workouts and link with your trainer.' },
+      invalid: { title: 'This link does not work', text: 'Ask the person who sent it to share it again, or install DoIt below.' },
+    },
+    uk: {
+      open: 'Відкрити DoIt',
+      ios: 'Завантажити в App Store',
+      android: 'Доступно в Google Play',
+      desktop: 'Відкрийте це посилання на телефоні, щоб продовжити в застосунку.',
+      notOpened: 'Нічого не сталося? Встановіть DoIt і відкрийте це посилання ще раз.',
+      installHint: 'Ще немає застосунку? Встановіть його і відкрийте це посилання ще раз.',
+      generic: { title: 'DoIt', text: 'Тренування і харчування для спортсменів та тренерів.' },
+      invite: { title: 'Вас запросили до DoIt', text: 'Відкрийте застосунок, щоб отримати свої тренування і зв’язатися з тренером.' },
+      invalid: { title: 'Це посилання не працює', text: 'Попросіть того, хто його надіслав, поділитися ним ще раз, або встановіть DoIt нижче.' },
+    },
+  }
+
+  var query = new URLSearchParams(window.location.search)
+  var lang = (query.get('lang') || navigator.language || 'en').toLowerCase().indexOf('uk') === 0 ? 'uk' : 'en'
+  var t = TEXT[lang]
+  document.documentElement.lang = lang
+
+  var ua = navigator.userAgent || ''
+  var isAndroid = /Android/i.test(ua)
+  var isIos = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+  var routeName = query.get('to')
+  var route = routeName && Object.prototype.hasOwnProperty.call(ROUTES, routeName) ? ROUTES[routeName] : null
+  var parts = []
+  var isValid = !!route
+  if (route) {
+    Object.keys(route.params).forEach(function (name) {
+      var value = query.get(name)
+      if (value === null) return
+      if (route.params[name].test(value)) parts.push(name + '=' + encodeURIComponent(value))
+      else isValid = false
+    })
+    route.required.forEach(function (name) {
+      if (query.get(name) === null) isValid = false
+    })
+  }
+
+  function $(id) { return document.getElementById(id) }
+  var texts = !routeName ? t.generic : isValid ? t[routeName] : t.invalid
+  $('title').textContent = texts.title
+  $('text').textContent = texts.text
+  document.title = texts.title
+
+  var ios = $('ios')
+  ios.textContent = t.ios
+  ios.href = APP_STORE_URL
+  var android = $('android')
+  android.textContent = t.android
+  android.href = PLAY_STORE_URL
+  // A phone shows its own store first; a computer shows both.
+  ios.hidden = isAndroid
+  android.hidden = isIos
+
+  var hint = $('hint')
+  var open = $('open')
+  var isPhone = isAndroid || isIos
+  if (!isPhone) {
+    hint.textContent = t.desktop
+    return
+  }
+
+  var appPath = routeName && isValid ? routeName + '?' + parts.join('&') : ''
+  if (!appPath) {
+    // No route (or a broken link): there is nothing to open, only the store.
+    hint.textContent = t.installHint
+    return
+  }
+
+  var target = isAndroid
+    ? 'intent://' + appPath + '#Intent;scheme=' + SCHEME + ';package=' + ANDROID_PACKAGE +
+      ';S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE_URL) + ';end'
+    : SCHEME + '://' + appPath
+  open.textContent = t.open
+  open.href = target
+  open.hidden = false
+  hint.textContent = t.installHint
+
+  // The app is opened at once; the button is there for browsers that need a tap for it.
+  var timer = window.setTimeout(function () {
+    hint.textContent = t.notOpened
+    ;(isAndroid ? android : ios).className = 'btn highlight'
+    open.className = 'btn'
+  }, OPEN_TIMEOUT_MS)
+  // The app took over: nothing more to show.
+  function cancel() { window.clearTimeout(timer) }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) cancel() })
+  window.addEventListener('pagehide', cancel)
+  window.setTimeout(function () { window.location.href = target }, 50)
+})()
+</script>
+</body>
+</html>
